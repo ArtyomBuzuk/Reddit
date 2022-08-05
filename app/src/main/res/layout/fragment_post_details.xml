@@ -5,6 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp"/>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/reddit_post_title"
         style="@style/RedditTextTitle"
@@ -12,19 +21,10 @@
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail"
         tools:text="Title"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reddit_post_title" />
-
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/reddit_post_description"
@@ -32,18 +32,18 @@
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/reddit_post_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Title"/>
 
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <Button
         android:id="@+id/reddit_post_url"
         android:padding="16dp"
         android:gravity="center"
         style="@style/RedditTextTitle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:textSize="11dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/reddit_post_description"
