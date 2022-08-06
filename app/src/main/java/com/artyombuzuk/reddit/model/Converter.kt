@@ -20,5 +20,7 @@ fun RemoteRedditPost.toRedditPost() = RedditPost(
     url = url,
     title = title,
     author = author,
-    name = name
+    name = name,
+    num_comments = num_comments,
+    created = created
 )

@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.artyombuzuk.reddit.R
 import com.artyombuzuk.reddit.databinding.RedditPostViewBinding
 import com.artyombuzuk.reddit.model.RedditPost
+import com.artyombuzuk.reddit.utils.getHours
 import com.bumptech.glide.Glide
+import kotlin.time.hours
 
 class TopRedditPostAdapter(
     private val onClickRedditPostDetails: (redditPost: RedditPost) -> Unit,
@@ -68,6 +70,9 @@ class TopRedditPostAdapter(
                 .placeholder(R.drawable.ic_image_placeholder)
                 .into(binding.redditThumbnail)
             binding.redditPostName.text = item.title
+            binding.itemComments.text = item.num_comments.toString()
+            binding.itemPostTime.text= item.created.getHours()
+            binding.itemPostAuthor.text=item.author
         }
     }
 }

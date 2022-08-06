@@ -20,6 +20,8 @@ data class RedditPost(
     val url: String?,
     val title: String?,
     val author: String?,
-    val name: String?
+    val name: String?,
+    val num_comments: Int?,
+    val created: Double?
 ) : Parcelable
 

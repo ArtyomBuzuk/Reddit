@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:id="@+id/list_item"
-    android:clickable="true">
+    android:layout_marginBottom="8dp">
 
     <View
         android:layout_width="wrap_content"
@@ -99,14 +98,14 @@
         app:layout_constraintStart_toEndOf="@+id/itemImageComments" />
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/reddit_post_details_button"
-            style="@style/ButtonRedditPostDetailsStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@string/top_reddit_post_details_button"
-            app:layout_constraintTop_toBottomOf="@+id/reddit_thumbnail"
-            app:layout_constraintStart_toEndOf="@id/itemComments"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/reddit_post_details_button"
+        style="@style/ButtonRedditPostDetailsStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/top_reddit_post_details_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/itemComments"
+        app:layout_constraintTop_toBottomOf="@+id/reddit_thumbnail" />
+</androidx.constraintlayout.widget.ConstraintLayout>
