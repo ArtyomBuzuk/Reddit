@@ -8,5 +8,10 @@
 
     <string name="top_reddit_post_error">Произошла ошибка загрузки. Нажмите здесь, чтобы повторить попытку.</string>
     <string name="top_reddit_post_save_image_button">Сохранить картинку</string>
+    <string name="top_reddit_post_url">URL: %1$s</string>
+    <string name="top_reddit_post_save_image_success">Изображение сохранено!</string>
+    <string name="top_reddit_post_save_image_error">Ошибка сохранения</string>
+    <string name="top_reddit_post_details_button">Подробнее</string>
+
 
 </resources>

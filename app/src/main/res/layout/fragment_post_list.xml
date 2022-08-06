@@ -19,7 +19,9 @@
             android:id="@+id/posts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp" />
+            android:padding="16dp"
+            tools:itemCount="3"
+            tools:listitem="@layout/reddit_post_view"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

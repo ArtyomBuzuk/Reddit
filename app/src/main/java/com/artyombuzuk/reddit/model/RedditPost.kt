@@ -22,3 +22,4 @@ data class RedditPost(
     val author: String?,
     val name: String?
 ) : Parcelable
+
