@@ -42,6 +42,7 @@ class TopRedditPostDetailsFragment : BaseFragment() {
             binding.redditPostTitle.text = redditPost.title
             binding.redditPostDescription.text = redditPost.name
             binding.author.text=redditPost.author
+            binding.buttonBack.setOnClickListener { onBackPressed() }
             binding.redditPostUrl.apply {
                 text = getString(R.string.top_reddit_post_url, redditPost.url ?: "")
                 setOnClickListener { shareUrl(redditPost.url ?: "") }

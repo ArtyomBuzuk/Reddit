@@ -59,9 +59,7 @@ class TopRedditPostAdapter(
             onClickRedditPostDetails: (redditPost: RedditPost) -> Unit,
             shoulShowDetails: (redditPost: RedditPost) -> Boolean
         ) {
-            binding.redditPostDetailsButton.visibility =
-                if (shoulShowDetails(item)) View.VISIBLE else View.GONE
-            binding.redditPostDetailsButton.setOnClickListener {
+            binding.listItem.setOnClickListener{
                 onClickRedditPostDetails(item)
             }
             Glide.with(itemView)
