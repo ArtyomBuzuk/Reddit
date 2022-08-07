@@ -1,5 +1,6 @@
 package com.artyombuzuk.reddit.view
 
+import android.app.ProgressDialog.show
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
@@ -43,7 +44,7 @@ class TopRedditPostDetailsFragment : BaseFragment() {
             binding.redditPostDescription.text = redditPost.name
             binding.author.text = redditPost.author
             binding.buttonBack.setOnClickListener { onBackPressed() }
-            binding.extendedFab.setOnClickListener {
+            binding.shareButton.setOnClickListener {
                 shareUrl(redditPost.url ?: "")
             }
             binding.redditPostUrl.apply {
@@ -61,6 +62,13 @@ class TopRedditPostDetailsFragment : BaseFragment() {
                             transition: Transition<in Bitmap>?
                         ) {
                             binding.thumbnail.setImageBitmap(resource)
+                            binding.saveButton.apply {
+                                show()
+                                setOnClickListener {
+                                    saveImageOnGallery(resource)
+                                }
+
+                            }
                             binding.saveThumbnailButton.apply {
                                 show()
                                 setOnClickListener {

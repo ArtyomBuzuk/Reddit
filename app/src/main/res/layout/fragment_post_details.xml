@@ -68,9 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Назад"
+        app:layout_constraintBottom_toTopOf="@+id/author"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/author"
         app:layout_constraintTop_toBottomOf="@+id/save_thumbnail_button" />
 
     <TextView
@@ -78,21 +78,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Здесь должен быть автор"
-        app:layout_constraintBottom_toTopOf="@+id/extended_fab"
+        app:layout_constraintBottom_toTopOf="@+id/shareButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/extended_fab"
+        android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:layout_gravity="bottom|end"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
         android:contentDescription="Поделиться алдвьдльмдльы"
         android:text="Поделиться"
-        app:icon="@drawable/icon_1"/>
+        app:icon="@drawable/icon_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Сохранить картинку"
+        android:text="Сохранить"
+        app:icon="@drawable/icon_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
