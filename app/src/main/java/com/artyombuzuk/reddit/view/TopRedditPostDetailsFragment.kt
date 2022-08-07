@@ -69,7 +69,7 @@ class TopRedditPostDetailsFragment : BaseFragment() {
                                 }
 
                             }
-                            binding.saveThumbnailButton.apply {
+                            binding.saveButton.apply {
                                 show()
                                 setOnClickListener {
                                     saveImageOnGallery(resource)
