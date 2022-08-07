@@ -14,40 +14,42 @@ import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.artyombuzuk.reddit.R
-import com.artyombuzuk.reddit.utils.show
 import com.artyombuzuk.reddit.databinding.FragmentPostDetailsBinding
-import com.artyombuzuk.reddit.di.BASE_URL
+import com.artyombuzuk.reddit.utils.show
 import com.artyombuzuk.reddit.model.RedditPost
-import com.artyombuzuk.reddit.utils.DownloadImageFromPath
 import com.artyombuzuk.reddit.view.viewmodel.TopRedditPostDetailsViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TopRedditPostDetailsFragment : BaseFragment() {
 
-    private var _binding : FragmentPostDetailsBinding? = null
+    private var _binding: FragmentPostDetailsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel : TopRedditPostDetailsViewModel by viewModel()
+    private val viewModel: TopRedditPostDetailsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPostDetailsBinding.inflate(inflater)
 
         arguments?.getParcelable<RedditPost>(PARAMETER_REDDIT_POST_KEY)?.let { redditPost ->
             binding.redditPostTitle.text = redditPost.title
             binding.redditPostDescription.text = redditPost.name
-            binding.author.text=redditPost.author
+            binding.author.text = redditPost.author
             binding.buttonBack.setOnClickListener { onBackPressed() }
+            binding.extendedFab.setOnClickListener {
+                shareUrl(redditPost.url ?: "")
+            }
             binding.redditPostUrl.apply {
                 text = getString(R.string.top_reddit_post_url, redditPost.url ?: "")
                 setOnClickListener { shareUrl(redditPost.url ?: "") }
             }
-            // Only load images if image is PNG or JPG
             if (viewModel.shouldLoadImage(redditPost)) {
                 Glide.with(this)
                     .asBitmap()
@@ -63,7 +65,6 @@ class TopRedditPostDetailsFragment : BaseFragment() {
                                 show()
                                 setOnClickListener {
                                     saveImageOnGallery(resource)
-                                    DownloadImageFromPath(BASE_URL)
                                 }
                             }
                         }
@@ -116,8 +117,6 @@ class TopRedditPostDetailsFragment : BaseFragment() {
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
     }
-
-    // I would move this to an UseCase, but we have to keep Android classes away from below layers
     private fun saveImageOnGallery(bitmap: Bitmap) {
         requireActivity().contentResolver
         val savedImageURL = MediaStore.Images.Media.insertImage(
@@ -144,7 +143,8 @@ class TopRedditPostDetailsFragment : BaseFragment() {
 
         const val TAG = "TopRedditPostDetailsFragment"
         const val PARAMETER_REDDIT_POST_KEY = "PARAMETER_REDDIT_POST_KEY"
-
-        fun newInstance() : TopRedditPostDetailsFragment = TopRedditPostDetailsFragment()
+        fun newInstance(): TopRedditPostDetailsFragment = TopRedditPostDetailsFragment()
     }
+
+
 }
