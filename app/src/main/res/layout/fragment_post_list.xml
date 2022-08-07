@@ -24,6 +24,16 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <ImageView
+        android:id="@+id/redditLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_reddit_svgrepo_com"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/loader_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/loader_list"
         android:layout_width="match_parent"
