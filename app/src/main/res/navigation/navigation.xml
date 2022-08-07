@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/reddit_post_list"
         android:name="com.artyombuzuk.reddit.view.TopRedditPostFragment"
-        android:label="@string/app_name"
+        android:label="Top новости Reddit"
         tools:layout="@layout/fragment_post_list">
         <action
             android:id="@+id/navigate_to_reddit_post_detail"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/reddit_post_details"
         android:name="com.artyombuzuk.reddit.view.TopRedditPostDetailsFragment"
-        android:label="@string/app_name"
+        android:label="Подробнее"
         tools:layout="@layout/fragment_post_details">
         <action
             android:id="@+id/action_reddit_post_details_to_reddit_post_list"

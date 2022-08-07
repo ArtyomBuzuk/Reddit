@@ -1,11 +1,10 @@
 package com.artyombuzuk.reddit.view
 
 import android.os.Bundle
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
-import com.artyombuzuk.reddit.R
 import com.artyombuzuk.reddit.databinding.ActivityMainBinding
 import org.koin.core.component.KoinComponent
+
 
 class MainActivity : AppCompatActivity(), KoinComponent {
 
