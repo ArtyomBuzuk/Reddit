@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/reddit_post_list"
-        android:name="com.artyombuzuk.reddit.view.TopRedditPostFragment"
+        android:name="com.artyombuzuk.reddit.view.RedditPostFragment"
         android:label="Top новости Reddit"
         tools:layout="@layout/fragment_post_list">
         <action
@@ -16,8 +16,18 @@
     </fragment>
 
     <fragment
+        android:id="@+id/reddit_favorite_post_list"
+        android:name="com.artyombuzuk.reddit.view.RedditPostFragment"
+        android:label="Favorite"
+        tools:layout="@layout/favorite_fragment">
+        <action
+            android:id="@+id/navigate_to_favorite"
+            app:destination="@id/reddit_post_list" />
+    </fragment>
+
+    <fragment
         android:id="@+id/reddit_post_details"
-        android:name="com.artyombuzuk.reddit.view.TopRedditPostDetailsFragment"
+        android:name="com.artyombuzuk.reddit.view.RedditPostDetailsFragment"
         android:label="Подробнее"
         tools:layout="@layout/fragment_post_details">
         <action

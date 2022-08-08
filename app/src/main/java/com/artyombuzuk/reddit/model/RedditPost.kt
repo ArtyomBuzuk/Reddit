@@ -22,6 +22,7 @@ data class RedditPost(
     val author: String?,
     val name: String?,
     val num_comments: Int?,
-    val created: Double?
+    val created: Double?,
+    var isFavorite: Boolean = false
 ) : Parcelable
 

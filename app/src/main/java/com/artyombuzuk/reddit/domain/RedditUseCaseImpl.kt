@@ -2,9 +2,9 @@ package com.artyombuzuk.reddit.domain
 
 import com.artyombuzuk.reddit.model.RedditPost
 
-class TopRedditUseCaseImpl(
-    private val redditRepository: TopRedditRepository
-) : TopRedditUseCase {
+class RedditUseCaseImpl(
+    private val redditRepository: RedditRepository
+) : RedditUseCase {
 
     override suspend fun getTopRedditPosts(after : String?): Result<List<RedditPost>> {
         return redditRepository.getTopRedditPosts(after)

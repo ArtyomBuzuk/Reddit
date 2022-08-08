@@ -3,12 +3,12 @@ package com.artyombuzuk.reddit.view.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.artyombuzuk.reddit.domain.TopRedditUseCase
+import com.artyombuzuk.reddit.domain.RedditUseCase
 import com.artyombuzuk.reddit.model.RedditPost
 import kotlinx.coroutines.launch
 
 class MainListViewModel(
-    private val topRedditUseCase: TopRedditUseCase
+    private val redditUseCase: RedditUseCase
 ) : ViewModel() {
 
     val mutableTopPostsListLiveData = MutableLiveData<List<RedditPost>>()
@@ -25,7 +25,7 @@ class MainListViewModel(
     fun getInitialTopPosts() {
         viewModelScope.launch {
             screenStateLiveData.postValue(ScreenState.Loading)
-            val result = topRedditUseCase.getTopRedditPosts()
+            val result = redditUseCase.getTopRedditPosts()
             if (result.isSuccess) {
                 mutableTopPostsListLiveData.postValue(result.getOrDefault(emptyList()))
                 screenStateLiveData.postValue(ScreenState.Content)
@@ -35,10 +35,10 @@ class MainListViewModel(
         }
     }
 
-    fun getMoreTopPosts(after : String) {
+    fun getMoreTopPosts(after: String) {
         viewModelScope.launch {
             mutableIsLoadingMoreDataLiveData.postValue(true)
-            val result = topRedditUseCase.getTopRedditPosts(after)
+            val result = redditUseCase.getTopRedditPosts(after)
             if (result.isSuccess) {
                 mutableTopPostsNewListLiveData.postValue(result.getOrDefault(emptyList()))
             }
@@ -46,7 +46,7 @@ class MainListViewModel(
         }
     }
 
-    fun shouldLoadImage(redditPost: RedditPost) : Boolean {
-        return topRedditUseCase.shouldLoadImage(redditPost)
+    fun shouldLoadImage(redditPost: RedditPost): Boolean {
+        return redditUseCase.shouldLoadImage(redditPost)
     }
 }

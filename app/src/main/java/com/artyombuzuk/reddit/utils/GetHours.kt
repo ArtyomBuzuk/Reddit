@@ -1,6 +1,6 @@
 package com.artyombuzuk.reddit.utils
 
-fun Double?.getHours (): String {
+fun Double?.getHours(): String {
     if (this == null) return ""
     val createdPost = this.toLong() * 1000
     val currentTime = System.currentTimeMillis()

@@ -2,7 +2,7 @@ package com.artyombuzuk.reddit.domain
 
 import com.artyombuzuk.reddit.model.RedditPost
 
-interface TopRedditRepository {
+interface RedditRepository {
     suspend fun getTopRedditPosts(
         after : String? = null
     ) : Result<List<RedditPost>>

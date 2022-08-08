@@ -1,7 +1,6 @@
 package com.artyombuzuk.reddit.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artyombuzuk.reddit.R
@@ -9,12 +8,11 @@ import com.artyombuzuk.reddit.databinding.RedditPostViewBinding
 import com.artyombuzuk.reddit.model.RedditPost
 import com.artyombuzuk.reddit.utils.getHours
 import com.bumptech.glide.Glide
-import kotlin.time.hours
 
-class TopRedditPostAdapter(
+class RedditPostAdapter(
     private val onClickRedditPostDetails: (redditPost: RedditPost) -> Unit,
     private val shouldShowDetails: (redditPost: RedditPost) -> Boolean
-) : RecyclerView.Adapter<TopRedditPostAdapter.RedditPostViewHolder>() {
+) : RecyclerView.Adapter<RedditPostAdapter.RedditPostViewHolder>() {
 
     private val items: MutableList<RedditPost> = mutableListOf()
 
@@ -59,7 +57,7 @@ class TopRedditPostAdapter(
             onClickRedditPostDetails: (redditPost: RedditPost) -> Unit,
             shoulShowDetails: (redditPost: RedditPost) -> Boolean
         ) {
-            binding.listItem.setOnClickListener{
+            binding.listItem.setOnClickListener {
                 onClickRedditPostDetails(item)
             }
             Glide.with(itemView)
@@ -69,8 +67,8 @@ class TopRedditPostAdapter(
                 .into(binding.redditThumbnail)
             binding.redditPostName.text = item.title
             binding.itemComments.text = item.num_comments.toString()
-            binding.itemPostTime.text= item.created.getHours()
-            binding.itemPostAuthor.text=item.author
+            binding.itemPostTime.text = item.created.getHours()
+            binding.itemPostAuthor.text = item.author
         }
     }
 }

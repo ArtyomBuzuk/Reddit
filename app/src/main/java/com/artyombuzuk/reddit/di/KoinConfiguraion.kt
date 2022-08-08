@@ -2,12 +2,12 @@ package com.artyombuzuk.reddit.di
 
 import android.content.Context
 import com.artyombuzuk.reddit.data.RedditApi
-import com.artyombuzuk.reddit.data.TopRedditRepositoryImpl
-import com.artyombuzuk.reddit.domain.TopRedditRepository
-import com.artyombuzuk.reddit.domain.TopRedditUseCase
-import com.artyombuzuk.reddit.domain.TopRedditUseCaseImpl
+import com.artyombuzuk.reddit.data.RedditRepositoryImpl
+import com.artyombuzuk.reddit.domain.RedditRepository
+import com.artyombuzuk.reddit.domain.RedditUseCase
+import com.artyombuzuk.reddit.domain.RedditUseCaseImpl
 import com.artyombuzuk.reddit.view.viewmodel.MainListViewModel
-import com.artyombuzuk.reddit.view.viewmodel.TopRedditPostDetailsViewModel
+import com.artyombuzuk.reddit.view.viewmodel.RedditPostDetailsViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -58,14 +58,14 @@ fun createNetworkModule() = module {
 }
 
 fun createRepositoryModule() = module {
-    single<TopRedditRepository> { TopRedditRepositoryImpl(get()) }
+    single<RedditRepository> { RedditRepositoryImpl(get()) }
 }
 
 fun createUseCaseModule() = module {
-    single<TopRedditUseCase> { TopRedditUseCaseImpl(get()) }
+    single<RedditUseCase> { RedditUseCaseImpl(get()) }
 }
 
 fun createViewModelModule() = module {
     viewModel { MainListViewModel(get()) }
-    viewModel { TopRedditPostDetailsViewModel(get()) }
+    viewModel { RedditPostDetailsViewModel(get()) }
 }

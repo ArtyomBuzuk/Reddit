@@ -12,18 +12,18 @@ import com.artyombuzuk.reddit.R
 import com.artyombuzuk.reddit.databinding.FragmentPostListBinding
 import com.artyombuzuk.reddit.utils.gone
 import com.artyombuzuk.reddit.utils.show
-import com.artyombuzuk.reddit.view.TopRedditPostDetailsFragment.Companion.PARAMETER_REDDIT_POST_KEY
+import com.artyombuzuk.reddit.view.RedditPostDetailsFragment.Companion.PARAMETER_REDDIT_POST_KEY
 import com.artyombuzuk.reddit.view.viewmodel.MainListViewModel
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TopRedditPostFragment : BaseFragment() {
+class RedditPostFragment : BaseFragment() {
 
-    private var _binding : FragmentPostListBinding? = null
+    private var _binding: FragmentPostListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel : MainListViewModel by viewModel()
-    private val adapter = TopRedditPostAdapter({ redditPost ->
+    private val viewModel: MainListViewModel by viewModel()
+    private val adapter = RedditPostAdapter({ redditPost ->
         val bundle = Bundle()
         bundle.putParcelable(PARAMETER_REDDIT_POST_KEY, redditPost)
         NavHostFragment.findNavController(this)
@@ -52,7 +52,9 @@ class TopRedditPostFragment : BaseFragment() {
                 val linearLayoutManager = recyclerView.layoutManager as? LinearLayoutManager
 
                 if (!isLoading) {
-                    if ((linearLayoutManager?.findLastCompletelyVisibleItemPosition() ?: -1) >= (linearLayoutManager?.itemCount ?: -1) - 1) {
+                    if ((linearLayoutManager?.findLastCompletelyVisibleItemPosition()
+                            ?: -1) >= (linearLayoutManager?.itemCount ?: -1) - 1
+                    ) {
                         adapter.getLastItemId()?.let {
                             isLoading = true
                             viewModel.getMoreTopPosts(it)
@@ -82,9 +84,11 @@ class TopRedditPostFragment : BaseFragment() {
             adapter.addItems(newList)
         })
 
-        viewModel.mutableIsLoadingMoreDataLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
-            binding.loader.visibility = if (isLoading) View.VISIBLE else View.GONE
-        })
+        viewModel.mutableIsLoadingMoreDataLiveData.observe(
+            viewLifecycleOwner,
+            Observer { isLoading ->
+                binding.loader.visibility = if (isLoading) View.VISIBLE else View.GONE
+            })
         viewModel.screenStateLiveData.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
                 MainListViewModel.ScreenState.Content -> {
@@ -111,7 +115,6 @@ class TopRedditPostFragment : BaseFragment() {
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
@@ -120,9 +123,8 @@ class TopRedditPostFragment : BaseFragment() {
 
     companion object {
         const val TAG = "TopRedditPostFragment"
-        fun newInstance() : TopRedditPostFragment = TopRedditPostFragment()
+        fun newInstance(): RedditPostFragment = RedditPostFragment()
     }
-
 
 
 }

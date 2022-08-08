@@ -1,12 +1,12 @@
 package com.artyombuzuk.reddit.data
 
-import com.artyombuzuk.reddit.domain.TopRedditRepository
+import com.artyombuzuk.reddit.domain.RedditRepository
 import com.artyombuzuk.reddit.model.RedditPost
 import com.artyombuzuk.reddit.model.toRedditPostParent
 
-class TopRedditRepositoryImpl(
+class RedditRepositoryImpl(
     private val redditApi: RedditApi
-) : TopRedditRepository {
+) : RedditRepository {
 
     override suspend fun getTopRedditPosts(after : String?) : Result<List<RedditPost>> {
         return try {

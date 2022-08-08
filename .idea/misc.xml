@@ -5,11 +5,12 @@
       <map>
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/content_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/favorite_fragment.xml" value="0.14010416666666667" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/favorite_post_view.xml" value="0.11302083333333333" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/fragment_favorite.xml" value="0.11302083333333333" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/fragment_post_details.xml" value="0.11302083333333333" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/fragment_post_list.xml" value="0.11302083333333333" />
-        <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/reddit_post_view.xml" value="0.11302083333333333" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/layout/reddit_post_view.xml" value="0.2" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/menu/bottom_nav_details.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Project/AndroidStudioProjects/Reddit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Chip/AndroidStudioProjects/Reddit/app/src/main/res/drawable-v24/ic_image_placeholder.xml" value="0.1" />
